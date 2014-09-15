@@ -39,7 +39,7 @@ namespace UnfollowTheseGuys
             Console.WriteLine("Found {0} people who are not following back...\n===\n", toUnfollow.Count);
 
             StreamWriter writer = new StreamWriter("tounfollow.html");
-            writer.WriteLine("<ul>");
+            writer.WriteLine("<ol>");
             
             foreach (long id in toUnfollow)
             {
@@ -47,11 +47,10 @@ namespace UnfollowTheseGuys
                 writer.WriteLine("<li><a href=\"{0}\">{0}</a></li>", url);
             }
 
-            writer.WriteLine("</ul>");
+            writer.WriteLine("<ol>");
             writer.Close();
 
-            Console.WriteLine("See 'tounfollow.html' for list of people to unfollow.");
-            Console.ReadKey();
+            System.Diagnostics.Process.Start("tounfollow.html");
         }
     }
 }
